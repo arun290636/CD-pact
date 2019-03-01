@@ -5,6 +5,7 @@ import static org.mockito.Mockito.when;
 
 import au.com.dius.pact.provider.junit.Provider;
 import au.com.dius.pact.provider.junit.State;
+import au.com.dius.pact.provider.junit.loader.PactBroker;
 import au.com.dius.pact.provider.junit.loader.PactFolder;
 import au.com.dius.pact.provider.junit.target.Target;
 import au.com.dius.pact.provider.junit.target.TestTarget;
@@ -19,7 +20,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 
 @RunWith(SpringRestPactRunner.class)
 @Provider("user-service")
-@PactFolder("pacts")
+@PactBroker(host = "localhost", tags = "master")
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @Ignore
 public class MockedUserServiceContractTest {
